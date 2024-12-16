@@ -11,7 +11,7 @@
         <div class="col-md-4 mb-4" *ngFor="let meal of myMeals.meals">
             <div class="card h-100">
                 <!-- Immagine -->
-                <a [href]="'https://www.google.com/search?q=' + meal.strMeal + ' meal'" target="_blank">
+                <a [href]="meal.strYoutube" target="_blank">
                     <img [src]="meal.strMealThumb" class="card-img-top img-fluid" alt="{{meal.strMeal}}">
                 </a>
                 <!-- Corpo della card -->
