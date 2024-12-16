@@ -15,18 +15,18 @@ export class MealService {
   constructor(private http: HttpClient) { }
 
   getRandomMeal() : Observable<Meal> {
-    let endPoint : string = this.apiUrlConsole + "random"
+    let endPoint : string = this.apiUrl + "random"
     return this.http.get<Meal>(endPoint)
   }
 
   searchMealByName(mealName: string) : Observable<Meal> {
-    let endPoint : string = this.apiUrlConsole + "search?s=" + mealName
+    let endPoint : string = this.apiUrl + "search?s=" + mealName
     console.log(endPoint)
     return this.http.post<Meal>(endPoint, null)
   }
 
   getMealSearches() : Observable<MealSearch[]> {
-    let endPoint : string = this.apiUrlConsole
+    let endPoint : string = this.apiUrl
     console.log(endPoint)
     return this.http.get<MealSearch[]>(endPoint)
   }
