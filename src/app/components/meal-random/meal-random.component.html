@@ -1,0 +1,27 @@
+<div class="container mt-4 text-center">
+    <h1 class="display-4 mb-3">Non hai fantasia? Cerchiamo il piatto per te!</h1>
+    <hr class="mb-4">
+
+    <button (click)="onClickMealRetriever()" class="btn btn-success mb-4">Cerca nuovo piatto</button>
+
+    <div class="row justify-content-center">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <!-- Immagine -->
+                <a [href]="mealScelto.strYoutube" target="_blank">
+                    <img [src]="mealScelto.strMealThumb" class="card-img-top img-fluid" alt="{{mealScelto.strMeal}}}">
+                </a>
+                <!-- Corpo della card -->
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">{{mealScelto.strMeal}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{mealScelto.strArea}}</h6>
+                    <p class="card-text">{{mealScelto.strInstructions}}</p>
+                    <div class="mt-auto">
+                        <hr>
+                        <p class="card-text"><strong>Categoria:</strong> {{mealScelto.strCategory}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

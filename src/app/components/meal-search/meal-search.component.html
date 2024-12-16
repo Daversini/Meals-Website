@@ -1,0 +1,35 @@
+<div class="container mt-4 text-center">
+    <h1 class="display-4 mb-3">Cerca il piatto perfetto per te!</h1>
+    <hr class="mb-4">
+
+    <div class="d-flex justify-content-center align-items-center mb-4">
+        <input type="text" #box placeholder="Cerca piatto" name="meal" class="form-control me-2" style="max-width: 300px;">
+        <button (click)="onClickMealRetriever(box.value)" class="btn btn-success">Cerca</button>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-4 mb-4" *ngFor="let meal of myMeals.meals">
+            <div class="card h-100">
+                <!-- Immagine -->
+                <a [href]="'https://www.google.com/search?q=' + meal.strMeal + ' meal'" target="_blank">
+                    <img [src]="meal.strMealThumb" class="card-img-top img-fluid" alt="{{meal.strMeal}}">
+                </a>
+                <!-- Corpo della card -->
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">{{meal.strMeal}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{meal.strArea}}</h6>
+                    <p class="card-text">{{meal.strInstructions}}</p>
+                    <div class="mt-auto">
+                        <hr>
+                        <p class="card-text"><strong>Categoria:</strong> {{meal.strCategory}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Messaggio di piatto non trovato -->
+    <div class="alert alert-warning" role="alert" *ngIf="searchPerformed && myMeals.meals.length == 0">
+        Nessun piatto trovato. Prova a cercare con un nome diverso!
+    </div>
+</div>
