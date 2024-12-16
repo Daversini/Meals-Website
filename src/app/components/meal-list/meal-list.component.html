@@ -11,12 +11,17 @@
                 <div class="card-body d-flex flex-column">
                     <h5 class="card-title">{{search.searchQuery}}</h5>
                     <div class="mt-auto">
-                        <p class="card-text">
-                            <strong>Data:</strong> {{search.createdAt | date:'short'}}</p>
                         <hr>
+                        <p class="card-text">
+                            <strong>Data:</strong> {{search.createdAt | date:'short'}}
+                        </p>
                         <p class="card-text">
                             <strong>Esito:</strong> {{search.searchSuccess ? 'Successo' : 'Fallito'}}
                         </p>
+                        <button (click)="repeatSearch(search.searchQuery)" class="btn mt-3"
+                            [ngClass]="{'btn-primary': search.searchSuccess, 'btn-danger': !search.searchSuccess}">
+                            Cerca di nuovo
+                        </button>
                     </div>
                 </div>
             </div>

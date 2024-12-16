@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MealService } from '../../services/meal.service';
@@ -15,8 +16,13 @@ export class MealSearchComponent {
   myMeals: Meal
   searchPerformed: boolean = false
 
-  constructor(private mealService: MealService) {
+  constructor(private mealService: MealService, private route: ActivatedRoute) {
     this.myMeals = new Meal
+    this.route.queryParams.subscribe(params => {
+      if (params['name']) {
+        this.onClickMealRetriever(params['name']);
+      }
+    });
   }
 
   onClickMealRetriever(mealName: string) {
