@@ -9,8 +9,7 @@ import { MealSearch } from '../models/meal-search.model';
 })
 export class MealService {
 
-  private apiUrl = 'https://localhost:7218/api/Meal/'
-  private apiUrlConsole = 'http://localhost:5000/api/Meal/'
+  private apiUrl = 'http://localhost:5000/api/Meal/'
 
   constructor(private http: HttpClient) { }
 
